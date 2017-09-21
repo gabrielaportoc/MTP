@@ -8,7 +8,7 @@ int main ()
 	printf( "digite o valor do lado do quadrado: \n\n");
 	scanf("%d", &x);
 	r = x*x;
-	printf("O valor da area do quadrado e: %d \n", r);
+	printf("%d \n", r);
 	return 0;
 }
 
