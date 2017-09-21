@@ -7,15 +7,22 @@
  	printf("\nDigite um numero inteiro nao negativo ");
     scanf("%d", &x);
     srand(time(0));
-    int y = rand() %10;
+    y = rand() %10;
     soma = x + y;
+    printf("%d\n", x);
+    printf("%d\n", y);
     if (soma%2 == 0)
-    	printf("Par");
+    	printf("Par\n");
     else 
-    	printf("Impar");
-    print ("%d,%d," x,y);
+    {
+    
+    	printf("Impar\n");
+    }
     return 0;
     
 }
+
+
+
     
     
