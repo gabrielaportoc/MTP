@@ -1,19 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 int main ()
 {
-	srand(time(0));
-	int soma = 0;
-	int x = rand() %6 +1;
-	int y = rand() %6 +1;
-	int z = rand() %6 +1;
-	soma = x + y + z;
-	printf("%d, %d, %d", x, y, z);
-	if (soma == 7 || soma == 11)
-		printf(" \nVoce ganhou :) \n");
-	else 
-		printf("\nVoce perdeu :/ \n");
+	int N1;
+	printf("\ndigite um numero inteiro \n");
+	scanf("%d", &N1);
+	if(N1%2 == 0)
+	{
+		printf("PAR \n");
+		if(N1%3 == 0)
+			printf("mult.3 \n");
+		if(N1%7 == 0)
+			printf("mult.7 \n");
+	}
+	else
+	{
+		printf("IMPAR \n");
+		if(N1%5 == 0)
+			printf("mult.5 \n");
+	}
 	return 0;
 }
