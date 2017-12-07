@@ -4,9 +4,9 @@
  
  {
  	int B,P,i,x = 0;
- 	printf( "digite um numero interio: \n\n");
+ 	printf( "Digite um numero interio: \n");
  	scanf("%d", &B);
- 	printf( "digite outro numero interio: \n\n");
+ 	printf( "Digite outro numero interio: \n");
     scanf("%d", &P);
     x = B;
     for (i=P; i > 1; i--)

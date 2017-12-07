@@ -9,6 +9,6 @@ int main ()
 	printf("Digite o angulo em radianos \n");
 	scanf("%f", &d);
 	a = sqrt(pow(b,2) + pow(c,2) - 2*b*c*cos(d));
-	printf("%.2f\n", a);
+	printf("%.4f\n", a);
 	return 0;
 }

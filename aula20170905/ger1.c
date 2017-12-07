@@ -19,10 +19,10 @@
 		}
 		if ( teste == 0 && i != 1 )
 			{
-				printf("\nprimo \n");
+				printf("Primo \n");
 		}
 		else 
-		   printf("\nnao e primo \n");
+		   printf("Nao e primo \n");
 		return 0;
 
 }

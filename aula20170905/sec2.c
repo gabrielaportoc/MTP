@@ -4,13 +4,13 @@
 int main ()
 
 {
-	int x,y,r;
+	float x,y,r;
 	printf( "\nDigite o valor da base do paralelogramo: \n\n");
-	scanf("%d", &x);
+	scanf("%f", &x);
 	printf( "\nDigite o valor da altura do paralelogramo: \n\n");
-	scanf("%d", &y);
+	scanf("%f", &y);
 	r = x*y;
-	printf("\n%d \n", r);
+	printf("\n%f \n", r);
 	return 0;
 }
 

@@ -1,11 +1,24 @@
 #include <stdio.h>
-
-int main ()
+#include<stdlib.h>
+#include<complex.h>
+#include<conio.h>
+int main()
 {
-	float r, i;
-	printf("\nDigite a parte real e a imaginaria: \n");
-	scanf("%f %f", &r, &i);
-	printf("A soma e: \n :");
-	printf("%f + %f*i \n", r , i);
-	return 0;
+    double complex a, b, Z;
+    double ra, rb, ia, ib;
+printf("entre com a real a: ");
+scanf("%lf", &ra);
+printf("entre com a imag a: ");
+scanf("%lf", &ia);
+printf("entre com a real b: ");
+scanf("%lf", &rb);
+printf("entre com a imag b: ");
+scanf("%lf", &ib);
+a= ra + I*ia;
+b= rb + I*ib;
+Z=a+b;
+printf("a soma eh %lf+I*%lf\n", creal(Z), cimag(Z));
+printf("ou igual a %lf<%lf rad\n",cabs(Z), carg(Z));
+getche();
+    return 0;
 }

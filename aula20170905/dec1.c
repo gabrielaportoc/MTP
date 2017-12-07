@@ -2,22 +2,22 @@
 
 int main ()
 {
-	int N1;
-	printf("\ndigite um numero inteiro \n");
-	scanf("%d", &N1);
-	if(N1%2 == 0)
-	{
-		printf("PAR \n");
-		if(N1%3 == 0)
-			printf("mult.3 \n");
-		if(N1%7 == 0)
-			printf("mult.7 \n");
-	}
-	else
-	{
-		printf("IMPAR \n");
-		if(N1%5 == 0)
-			printf("mult.5 \n");
-	}
-	return 0;
+    int numero, resto;
+    printf ("Digite o numero desejado.\n");
+    scanf ("%d", &numero);
+    resto = numero%2;
+    if (resto==1)
+        printf("impar.\n");
+    else if (resto==0)
+        printf("par.\n");
+    resto = numero%3;
+    if (resto==0)
+        printf("mult.3\n");
+    resto = numero%5;
+    if (resto==0)
+        printf("mult.5\n");
+    resto = numero%7;
+    if (resto==0)
+        printf("mult.7\n");
+        return 0;
 }

@@ -1,15 +1,14 @@
 #include <stdio.h>
 
+
 int main ()
-{	
-	float N,i = 0, aux = 1;
-	printf("\nDigite um numero inteiro \n");
-	scanf("%f", &N);
-	while(N - i > 0)
-	{
-		aux = aux*(N-i);
-		i++;
-	}
-	printf("\n%f \n", aux);
-	return 0;
+{
+    double numero, fat, mult=1;
+    printf ("Digite o numero para que seja calculado o seu fatorial.\n");
+    scanf ("%lf", &numero);
+    for(fat=1; fat<=numero; fat++)
+        mult = mult*fat;
+    printf("%lf\n", mult);
+	system ("pause");
+    return 0;
 }

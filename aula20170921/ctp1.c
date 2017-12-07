@@ -5,7 +5,7 @@
 int main ()
 {
 	int a, i = 0, c;
-	printf("\n Digite uma frase: \n");
+	printf("\nDigite uma frase: \n");
 	char frase[250];
 	fgets(frase, 250, stdin);
 	for(i ; i < strlen(frase); i++)

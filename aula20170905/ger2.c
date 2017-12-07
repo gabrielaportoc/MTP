@@ -1,4 +1,5 @@
 #include <stdio.h>
+
  int main ()
  
  {
@@ -12,10 +13,10 @@
  	}
  	if (soma == x)
  	{
- 		printf("\nE perfeito\n");
+ 		printf("E perfeito\n");
  	}
  	else 
- 	    printf("\nNao e perfeito\n");
+ 	    printf("Nao e perfeito\n");
  	    
  	return 0;
  	

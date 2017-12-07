@@ -2,13 +2,11 @@
 #include <stdio.h>
 
 int main ()
-
 {
-	int x,r;
-	printf( "digite o valor do lado do quadrado: \n\n");
-	scanf("%d", &x);
-	r = x*x;
-	printf("%d \n", r);
-	return 0;
+    float lado, area;
+    printf ("Digite o valor do lado do quadrado para que sua area seja calculada, em metros\n");
+    scanf ("%f", &lado);
+    area = lado*lado;
+    printf ( "%f", area);
+    return 0;
 }
-
