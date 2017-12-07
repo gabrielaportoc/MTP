@@ -1,25 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define n 1000
 
-int main ()
+
+int main()
 {
+	int vet[n], i=0, num, flag=0;
 	srand(time(0));
-	int n = 0, i = 0 , esc, vetor[1000],cont = 0;
-	unsigned char *p;
-	for(i ; i < 1000; i++)
-		vetor[i] = rand()%32787;
-	p = (unsigned char *) vetor;
-	printf("\n DIGITE UM NUMERO ENTRE 0 E 255 \n");
-	scanf("%d", &esc); getchar();
-	for(n ; n < sizeof(vetor) ; n++)
+	unsigned char *ponteiro;
+	for (i=0; i < n; i++)
 	{
-		if(vetor[n] == esc)
-		{
-			cont++;		
-			printf("\n END: %p \n DADO: %d \n",p,vetor[n]);		
-		}		
+		vet[i] = rand ();
 	}
-	printf("\n NUMERO %d TEM %d BYTES LOCALIZADOS \n", esc, cont);
-	return 0;
+	ponteiro = (unsigned char*) &vet;
+	printf("Caro usuario,digite um numero entre 0 e 255: ");
+	scanf("%d", &num);
+	if (num<0 || num> 255)
+		printf("Digite outro numero!");
+	printf("Em %p, temos:", ponteiro);
+	for (i=0; i < n; i++)
+	{
+		if (ponteiro[i]==num)
+		{
+			flag++;
+			printf(" %d",ponteiro[i]);
+		}
+	}
+	printf(" \n %d sao bytes iguais a %d , entre o endereco %p e o endereco %p na memoria\n ", flag, num, ponteiro, ponteiro+sizeof(vet) );
+	system("pause");
 }

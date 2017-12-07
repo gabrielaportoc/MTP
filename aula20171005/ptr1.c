@@ -13,9 +13,9 @@ int main ()
 	printf("\n O ENDEREÇO DE MEMORIA : %p \n", (c+1));
 	printf("\n O ENDEREÇO DE MEMORIA : %p \n", (c+2));
 	printf("\n O ENDEREÇO DE MEMORIA : %p \n", (c+3));
-	printf("\n O CONTEUDO EM HEXA DECIMAL E  %X \n", *(c+0));
-	printf("\n O CONTEUDO EM HEXA DECIMAL E  %X \n", *(c+1));
-	printf("\n O CONTEUDO EM HEXA DECIMAL E  %X \n", *(c+2));
-	printf("\n O CONTEUDO EM HEXA DECIMAL E  %X \n", *(c+3));
+	printf("\n O CONTEUDO EM HEXA DECIMAL:  %X \n", *(c+0));
+	printf("\n O CONTEUDO EM HEXA DECIMAL:  %X \n", *(c+1));
+	printf("\n O CONTEUDO EM HEXA DECIMAL:  %X \n", *(c+2));
+	printf("\n O CONTEUDO EM HEXA DECIMAL:  %X \n", *(c+3));
 	return 0;
 }

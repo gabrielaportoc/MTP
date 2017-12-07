@@ -1,32 +1,35 @@
+#include <conio.h>
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
 
 int main ()
 {
-	int a, i = 0,j =0, c;
-	printf("\nDigite uma frase: \n");
-	char frase[250]; //frase1[256];
-	fgets(frase, 250, stdin);
-	for(i ; i < strlen(frase); i++)
-		printf("%c",tolower(frase[i]));
-	printf("\n");
-	for(j ; frase[j] != '\0' ; j++)
+	char str[1000], str1[50], str2[50];
+	int i, primeiro=0, flag=0;
+	printf("Digite a frase desejada\n");
+	fgets(str,1000,stdin);
+	printf("%d\n", strlen (str));
+	for (i=0; str[i]!='\0'; i++)
 	{
-	
-		if(isalpha(frase[j]))
-			c = c + 1;
-	}	
-	printf("%d \n", c);	
-	if (strncmp( frase,"bom dia",7) ==0)
-	 	printf("\nBom dia tambem\n");
-	if (strncmp( frase,"tchau",5) ==0)
-		printf("\nSaindo? Que pena...");
-	else 
-	{
-		strcat(frase,"?"); //add ? na frase 
-		printf("Voce quiz dizer: %s", frase);
+		if (isalpha(str[i]))
+		{
+			str[i]= toupper(str[i]);
+		}
 	}
+			if (str[0] =='B'  && str[1]=='O' && str[2] =='M' && str[3]==' ' && str[4] =='D' && str[5]== 'I'  && str[6]=='A')
+			{
+				printf("Bom dia pra voce tambem!\n");
+				flag=1;
+			}
+			else if (str[0] == 'T' && str[1]=='C' && str[2] == 'H' && str[3]=='A' && str[4] =='U')
+			{
+				printf("Saindo? Que pena…\n");
+				flag=1;
+			}
+	
+	if (flag==0)
+		printf("Voce quis dizer: %s?", str);
+	getch ();
 	return 0;
-
 }

@@ -1,54 +1,47 @@
+#include <conio.h>
 #include <stdio.h>
 #include <ctype.h>
-
+#include <string.h>
 int main ()
 {
-	char fra[1000];
-	int i = 0,j = 0;
-	printf("\nDigite uma frase \n");
-	fgets(fra,1000,stdin);
-	for(i; fra[i] != '\0'; i++)
-		if(fra[i] >= 'a' && fra[i] <= 'z')
-			fra[i] = toupper(fra[i]);
-	for(j; fra[j] != '\0'; j++)
+	char str[1000];
+	int i;
+	printf("Digite a frase desejada.");
+	fgets(str,1000,stdin);
+	for (i=0; str[i]!='\0'; i++)
 	{
-		if(fra[j] == 'A')
-		{	
-			fra[j] = '4';
-			printf("%c",fra[j]);
-		}	
-		if(fra[j] == 'E')
+		if (isalpha(str[i]))
 		{
-			fra[j] = '3';
-			printf("%c",fra[j]);		
+			str[i]= toupper(str[i]);
 		}
-		if(fra[j] == 'I')
-		{
-			fra[j] = '1';
-			printf("%c",fra[j]);
-		}
-		if(fra[j] == 'O')
-		{
-			fra[j] = '0';
-			printf("%c",fra[j]);
-		}
-		if(fra[j] == 'S')
-		{
-			fra[j] = '5';
-			printf("%c",fra[j]);
-		}
-		if(fra[j] == 'G') 
-		{
-			fra[j] = '6';
-			printf("%c",fra[j]);
-		}
-		if(fra[j] == 'g')
-		{
-			fra[j] = '9';
-			printf("%c", fra[j]);
-		}
-		else
-			printf("%c", fra[j]);
 	}
+	for (i=0; str[i]!='\0'; i++)
+	{
+		 switch (str[i])
+			 {
+				 case'A':
+					 str[i] = '4'; 
+					 break;
+				 case 'E':
+					 str[i] = '3'; 
+					 break;
+				 case 'I':
+					 str[i] = '1'; 
+					 break;
+				 case 'O':
+					 str[i] = '0'; 
+					 break;
+				 case 'S':
+					 str[i] = '5'; 
+					 break;
+				 case 'G':
+					 str[i] = '6';
+					 break;
+				 default:
+					 break;
+		 }
+	}
+	printf("%s.\n", str);
+	getch ();
 	return 0;
 }

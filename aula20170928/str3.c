@@ -1,25 +1,23 @@
+#include <conio.h>
 #include <stdio.h>
-
+#include <ctype.h>
+#include <string.h>
 int main ()
 {
-	char fra[1000];
-	int i = 0, k = 0;
-	printf("\nDigite uma frase \n");
-	fgets(fra,1000,stdin);
-	for(i; fra[i] != '\0'; i++)
+	char str[1000];
+	int i;
+	printf("Digite a frase desejada:\n");
+	fgets(str,1000,stdin);
+	for (i=0; str[i]!='\0'; i++)
 	{
-		if(fra[i] >= 'A' && fra[i] <= 'M')
-			printf("%c", fra[i]+13);
-		else
-			if(fra[i] >= 'N' && fra[i] <= 'Z')
-				printf("%c", fra[i]-13);
-		else
-			if(fra[i] >= 'a' && fra[i] <= 'm')
-				printf("%c", fra[i]+13);
-		else
-			if(fra[i] >= 'n' && fra[i] <= 'z')
-				printf("%c", fra[i]+-13);
+		if ((str[i]>='a' && str[i]<='m')|| (str[i]>='A' && str[i]<='M'))
+		{
+			str[i] = str[i] + 13;
+		}
+		else if ((str[i]>='n' && str[i]<='z')|| (str[i]>='N' && str[i]<='Z'))
+			str[i] = str[i] - 13;
 	}
-	printf("\n");
+	printf("%s\n", str);
+	getch ();
 	return 0;
 }

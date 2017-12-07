@@ -15,7 +15,7 @@ int main ()
 		soma = soma + vet[i];
 	}
 	y = soma/1000;
-	printf("em torno de %f\n", y);
+	printf("%f\n", y);
 	return 0;
 	
 }
