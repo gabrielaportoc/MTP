@@ -1,73 +1,50 @@
-#include <stdio.h>
 #include<stdlib.h>
-#include<ctype.h>
-#include<conio.h>
-typedef
-
-struct strPonto
+#include<stdio.h>
+#include<math.h>
+#define n 1000
+#define m 1000
+void preenche(float * elemento)
 {
-    double x;
-    double y;
-}ponto;
-
-typedef
-
-struct strPoligono
-{
-    int quantidade;
-    ponto * vertices;
-}poligono;
-
-int determinante (ponto A, ponto B)
-{
-    return ((A.x*B.y)-(A.y*B.x));
+  scanf("%f", elemento);
 }
-ponto centroide (poligono p)
+void imprime(float **matriz, int N, int M)
 {
-    ponto C;
-    double somatorioX=0, somatorioY=0;
-    int i;
-    for (i=0; i<p.quantidade; i++){
-        somatorioX+=p.vertices[i].x;
-        somatorioY+=p.vertices[i].y;
-    }
-    C.x=(double)somatorioX/p.quantidade;
-    C.y=(double)somatorioY/p.quantidade;
-    return C;
+  int i, j;
+  printf("Matriz %dx%d:\n", N, M);
+  for(i = 0; i < N; i++)
+    for(j = 0; j < M; j++)
+      printf("%g%c", matriz[i][j], (j == M-1)? '\n':'\t');
 }
-int main()
+void transposta(float **matriz, int M, int N)
 {
-    int i, j, qnts_Poligonos;
-    double area;
-    ponto cent;
-    poligono * vetPoligono;
-    printf ("Digite a quantidade de poligonos desejada.");
-    scanf ("%d", &qnts_Poligonos);
-    vetPoligono = (poligono*) calloc (qnts_Poligonos, sizeof (poligono));
-    for (i=0; i<qnts_Poligonos; i++)
-	{
-        printf ("Digite a quantidade de pontos do poligono %d: ", i+1);
-        scanf ("%d", &vetPoligono[i].quantidade);
-        vetPoligono[i].vertices=(ponto*)calloc(vetPoligono[i].quantidade, sizeof (ponto));
-        for (j=0; j<vetPoligono[i].quantidade; j++)
-		{
-            printf ("Digite a coordenada x e y do vertice %d: ", j+1);
-            scanf ("%lf %lf", &vetPoligono[i].vertices[j].x, &vetPoligono[i].vertices[j].y);
-        }
-        area=0;
-        for (j=0; j<vetPoligono[i].quantidade-1; j++)
-		{
-            area= area + determinante (vetPoligono[i].vertices[j], vetPoligono[i].vertices[j+1]);
-        }
-        area=0.5*area;
-        if (area<0){
-            area*=-1;
-        }
-        printf ("A area do poligono %d eh %lf\n", i+1, area);
+  int i, j;
+  printf("Transposta %dx%d:\n", N, M);
+  for(i = 0; i < N; i++)
+    for(j = 0; j < M; j++)
+      printf("%g%c", matriz[j][i], (j == M-1)? '\n':'\t');
+}
 
-        cent = centroide (vetPoligono[i]);
-        printf ("As coordenadas x e y do centroide do poligono %d sao (%lf,%lf)\n", i+1, cent.x, cent.y);
+int main() {
+  int i, j;
+  int N, M;
+  float **matriz;
+  printf("Insira quantos vertices o poligono tem: ");
+  scanf("%d", &N);
+  M=N;
+  matriz = calloc(N,sizeof(float*));
+  for(i = 0; i < N; i++)
+    {
+	matriz[i] = calloc(M,sizeof(float));
+    for(j = 0; j < M; j++)
+    {
+      printf("Element (%d,%d): ", i, j);
+      preenche(&matriz[i][j]);
     }
-getch();
-return 0;
+    }
+  imprime(matriz, N, M);
+  transposta(matriz, N, M);
+  for(i = 0; i < N; i++)
+	free(matriz[i]);
+  free(matriz);
+  return 0;
 }

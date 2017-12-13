@@ -1,33 +1,28 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-
-
-void soma (int d1 , int n1 , int d2 , int n2)
-
+int somafracao (int num1, int den1, int num2, int den2, int * pnumR, int * pdenR)
 {
-
-	printf(" %d / %d \n" , ((d2*n1)+(d1*n2)) , (d1*d2));
-
+    if (den1 ==0 || den2 ==0)
+        return 0; // falso
+    else
+    {
+        *pnumR = den2*num1 + den1*num2;
+        *pdenR = den1*den2;
+        return 1; // verdadeiro
+    }
 }
 
 int main ()
-
 {
-
-	int a,b,c,d;
-
-	printf("\n DIGITE DOIS NUMEROS RACIONAIS \n");
-
-	printf("\n PRIMEIRO NUMERO : \n");
-
-	scanf("%d/%d", &a, &b);
-
-	printf("\n SEGUNDO NUMERO: \n");
-
-	scanf("%d/%d", &c, &d);
-
-	soma(b,a,d,c);
-
-	return 0;
-
+    int num1, den1, num2, den2, numR, denR;
+    printf("Entre com um numero racional na forma num/den: ");
+    scanf("%d/%d", &num1, &den1);
+    printf("Entre com outro numero racional na forma num/den: ");
+    scanf("%d/%d", &num2, &den2);
+    if (somafracao(num1, den1, num2, den2, &numR, &denR))
+        printf("Resultado da soma = %d/%d\n", numR, denR);
+    else
+        printf("Erro!\n");
+    return EXIT_SUCCESS;
 }

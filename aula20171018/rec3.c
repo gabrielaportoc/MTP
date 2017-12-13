@@ -1,115 +1,47 @@
-#include <stdio.h>
-
-#include <stdlib.h>
-
-
-
-int MDC(int A, int B)
-
+#include<stdio.h>
+#include<stdlib.h>
+int soma(int num, int den, int nume, int deno, int * pnum, int *pden)
 {
-
-	int mdc = 1;
-
-	if (A==B || B == 0)
-
-		mdc = A;
-
-	else
-
-	{
-
-	if (	A == 0)
-
-		mdc = B;
-
-	else
-
-	{
-
-	if(A%2==0 && B%2!=0)
-
-		mdc=MDC(A/2,B);
-
-	else
-
-	{
-
-	if(A%2!=0 && B%2==0)
-
-		mdc=MDC(A,B/2);
-
-	else
-
-	{
-
-	if(A%2==0 && B%2==0)
-
-		mdc=2*MDC(A/2,B/2);
-
-	else
-
-	{
-
-	if(A>B)
-
-		mdc=MDC((A-B)/2,B);
-
-	else
-
-	{
-
-	if(A<B)
-
-		mdc=MDC((B-A)/2,A);
-
-	}}}}}}
-
-	return mdc;
+    if(den==0 || deno==0)
+        return 0;
+    else
+    {
+        *pnum=deno*num+den*nume;
+        *pden=den*deno;
+        return 1;
+    }
+}
+int mdc (int u,int v)
+{
+    if (u==v || v==0)
+        return u;
+    if (u==0)
+        return v;
+    if (u%2==0 && v%2!=0)
+        return mdc(u/2,v);
+    if(u%2!=0 && v%2==0)
+       return mdc(u,v/2);
+    if (u%2==0 && v%2==0)
+        return 2*mdc(u/2,v/2);
+    if(u>v)
+        return mdc((u-v)/2,v);
+    else
+        return mdc((v-u)/2,u);
 
 }
-
-int soma(int n1, int n2, int d1, int d2)
-
+int main()
 {
-
-	int A,B;
-
-	if(d1==0 || d2==0)
-
-		printf("\n ERRO \n");
-
-	else
-
-	{
-
-		A = n1*d2+d1*n2;
-
-		B = d1*d2;
-
-		printf("\n A DIVISAO E : %d/%d \n",A/MDC(A,B),B/MDC(A,B));
-
-	}
-
-	return 0;
-
-}
-
-int main ()
-
-{
-
-	int n1,n2,d1,d2;
-
-	printf("\n DIGITE O PRIMEIRO NUMERO : (d/n) \n");
-
-	scanf("%d/%d",&n1,&d1);
-
-	printf("\n DIGITE O SEGUNDO NUMERO : (d/n) \n");
-
-	scanf("%d/%d",&n2,&d2);
-
-	soma(n1,n2,d1,d2);
-
-	return 0;
-
+    int num, nume, den, deno, rep, pden, pnum, until, pry;
+    printf("Digite um numero racional da forma numerador/denominador:\n");
+    scanf("%d/%d", &num, &den);
+    printf("Digite outro numero racional da forma numerador/denominador:\n");
+    scanf("%d/%d", &nume, &deno);
+    if(soma(num,den, nume, deno, &pnum, &pden))
+        printf("\nResposta: ",pnum,pden);
+    else
+        printf("___ERRO___");
+    until=pnum/mdc(pnum,pden);
+    pry=pden/mdc(pnum,pden);
+    printf("%i/%i", until,pry);
+    return EXIT_SUCCESS;
 }

@@ -1,30 +1,26 @@
-#include <stdio.h>
-void p (int n1, int n2)
-
+#include<stdio.h>
+#include<stdlib.h>
+int soma(int num, int nume,int * pnum, int *pden)
 {
-
-	printf("\n QUOCIENTE DA DIVISAO: %d \n", n1/n2);
-
-	printf("\n RESTO DA DIVISAO: %d \n", n1%n2);
-
+    if(nume==0)
+        return 0;
+    else
+    {
+        *pnum=num/nume;
+        *pden=num%nume;
+        return 1;
+    }
 }
-
-int main ()
-
+int main()
 {
-
-	int num1,num2;
-
-	printf("\n DIGITE O PRIMEIRO NUMERO \n");
-
-	scanf("%d",&num1); getchar();
-
-	printf("\n DIGITE O SEGUNDO NUMERO \n");
-
-	scanf("%d",&num2); getchar();
-
-	p(num1,num2);	
-
-	return 0;
-
-} 
+    int num, nume, den, deno, rep, pden, pnum;
+    printf("Digite um numero :\n");
+    scanf("%d", &num);
+    printf("Digite outro numero:\n");
+    scanf("%d", &nume);
+    if(soma(num, nume, &pnum, &pden))
+        printf("\nQuociente: %d\nResto: %d\n",pnum,pden);
+    else
+        printf("\nERRO");
+    return EXIT_SUCCESS;
+}

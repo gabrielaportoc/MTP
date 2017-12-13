@@ -1,35 +1,23 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 #include <string.h>
-
-
-
-int inverte(char F[], int i)
-
+#define g 836
+void troca(char * str)
 {
-
-	if(F[i]!='\0')
-
-	printf("%c%c", F[i], inverte(F,i+1));
-
-	return 0;
-
+    if(*str)
+    {
+        troca(str+1);
+        printf("%c",*str);
+    }
 }
-
-int main ()
-
+int main()
 {
-
-	char frase[140];
-
-	printf("\n DIGITE UMA FRASE \n");
-
-	fgets(frase,140,stdin);
-
-	inverte(frase,0);
-
-	printf("\n");
-
-	return 0;
-
+    char a[g];
+    printf ("Entre com uma frase: ");
+    fgets(a,g,stdin);
+    a[strlen(a)-1]='\0';
+    printf("Frase invertida: ");
+    troca(a);
+    printf("\n");
+    return EXIT_SUCCESS;
 }

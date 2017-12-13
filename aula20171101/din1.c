@@ -1,47 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-int media(int n, float *numero)
+#include<stdlib.h>
+#include<stdio.h>
+#include<math.h>
+float media(float *numeros,int a)
 {
-	int i,t=0;
-	float m =0;
-	for(i=0;i<n;i++)
-	{
-		t = t + numero[i];
-	}
-	m = t/n;
-	printf("\nA media e igual a %f\n", m);
-	return m;
+    int i;
+    float m=0.0f;
+    for (i=0;i<a;i++)
+        m+=numeros[i];
+    m/=a;
+    return m;
 }
-int desvio(int m,float *numero, int n)
+float desvio(float * numeros,int a)
 {
-	int i;
-	float d=0;
-	for(i=0;i<n;i++)
-	{
-		d = d + pow((numero[i] - m),2);
-	}
-	d = sqrt(d/(n-1));
-	printf("\nO desvio padrao e %f\n", d);
-	return d;
+    float m= media(numeros,a);
+    float dp=0.0f;
+    int i;
+    for (i=0;i<a;i++)
+            dp+=pow(numeros[i]-m,2);
+    dp/=(a-1);
+    return sqrt(dp);
 }
-int main ()
+int main()
 {
-	float * numeros;
-    int i,n,x;
-    float v=0;
-    printf("\nDigite quantos numeros voce deseja: ");
-    scanf("%d", &n);
-    numeros = (float*)calloc(n,sizeof(float));
-    printf("\nDigite os numeros que voce deseja: ");
-    for (i=0;i<n;i++)
+    float * numer;
+    int a, i=0;
+    printf("Quantos numeros tu quer?: ");
+    scanf("%d",&a);
+    numer=(float*)malloc(a*sizeof(float));
+    for (i=0;i<a;i++)
     {
-    		scanf("%f", &numeros[i]);
+        printf("Insira %do numero: ",i+1);
+        scanf("%f",numer+i);
     }
-    v = media(n,numeros);
-    desvio(v,numeros,n);
-    
-    return 0;
+    printf("\nMedia: %f",media(numer,a));
+    printf("\nDesvio padrao:%f\n",desvio(numer,a));
+    free(numer);
+    return EXIT_SUCCESS;
 }
-

@@ -1,48 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-void preenche(float * elemento) 
+#include<stdlib.h>
+#include<stdio.h>
+#include<math.h>
+float media(float *numeros,int a)
 {
-  scanf("%f", elemento);
+    int i;
+    float m=0.0f;
+    for (i=0;i<a;i++)
+        m+=numeros[i];
+    m/=a;
+    return m;
 }
-
-void imprime(float **matriz, int N, int M) 
+float desvio(float * numeros,int a)
 {
-  int i, j;
-  printf("matriz %dx%d:\n", N, M);
-  for(i = 0; i < N; i++)
-    for(j = 0; j < M; j++)
-      printf("%g%c", matriz[i][j], (j == M-1)? '\n':'\t');
+    float m= media(numeros,a);
+    float dp=0.0f;
+    int i;
+    for (i=0;i<a;i++)
+            dp+=pow(numeros[i]-m,2);
+    dp/=(a-1);
+    return sqrt(dp);
 }
- void transposta(float **matriz, int N, int M)
+int main()
 {
-	int i,j;
-	float  matrizt[M][N];
-	for (i=0;i<M;i++)
-		for (j=0;j<N;j++)
-			printf("%g%c", matriz[j][i], (j == M-1)? '\n':'\t');
-	
-}
-
-int main() 
-{
-  int i, j;
-  int N, M;
-  float **matriz;
-  printf("Entre com a ordem da matriz, no formato 'NxM': ");
-  scanf("%d %d", &N, &M);
-  matriz = calloc(N,sizeof(float*));
-  for(i = 0; i < N; i++) {
-	matriz[i] = calloc(M,sizeof(float));
-    for(j = 0; j < M; j++) {
-      printf("Elemento (%d,%d): ", i, j);
-      preenche(&matriz[i][j]);
+    float * numer;
+    int a, i=0;
+    printf("Quantos numeros tu quer?: ");
+    scanf("%d",&a);
+    numer=(float*)malloc(a*sizeof(float));
+    for (i=0;i<a;i++)
+    {
+        printf("Insira %do numero: ",i+1);
+        scanf("%f",numer+i);
     }
-  }
-  imprime(matriz, N, M);
-  transposta(matriz,N,M);
-  return 0;
+    printf("\nMedia: %f",media(numer,a));
+    printf("\nDesvio padrao:%f\n",desvio(numer,a));
+    free(numer);
+    return EXIT_SUCCESS;
 }
-
-
-

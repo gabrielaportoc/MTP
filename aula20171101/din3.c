@@ -1,28 +1,27 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <string.h>
-
+#include<stdlib.h>
+#include<stdio.h>
+#include<math.h>
 int main()
 {
-    char str[150];
-    printf("Digite um texto para ser transformado em maiusculo, e para sair digite '*': \n");
-	fgets(str,150,stdin);
-	for(int i=0; str[i] != '\0'; i++)
-	{
-			if (str[i] == '*')
-			{
-				return 0;
-				break;
-			  
-			}
-			else
-			{
-				str[i]=toupper(str[i]);
-			}
-	}
-	printf("%s", str);
-	getche();
-	return 0;
+    char * rec;
+    int i=0;
+    rec=(char*)malloc(1*sizeof(char));
+    printf("Escreva alguma coisa:\n");
+    while(1)
+        {
+            scanf("%c", rec+i);
+            rec= (char *)realloc(rec, sizeof(char)*1);
+            if(*(rec+i)==' ')
+                break;
+            i++;
+        }
+        *(rec+i)='\0';
+            while(i>=0)
+    {
+        *(rec+i)= toupper(*(rec+i));
+        i--;
+    }
+        printf("***%s",rec);
+        free(rec);
+    return EXIT_SUCCESS;
 }
